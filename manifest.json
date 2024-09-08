@@ -1,0 +1,43 @@
+{
+  "manifest_version": 2,
+  "name": "Lightspeed Alert Agent",
+  "description": "Lightspeed Alert Agent for Chrome",
+  "version": "2.4.2.1721333592",
+  "icons": {
+    "16": "icon-16.png",
+    "128": "icon-128.png"
+  },
+  "permissions": [
+    "background",
+    "<all_urls>",
+    "history",
+    "http://*/*",
+    "https://*/*",
+    "storage",
+    "tabs",
+    "identity",
+    "identity.email",
+    "management",
+    "enterprise.deviceAttributes",
+    "enterprise.networkingAttributes"
+  ],
+  "update_url": "https://lsrelay-extensions-production.s3.amazonaws.com/alert/09e8e3b0a7012c911fe4df9cf39574254d5f7aebdc0102de0401f526906fc649/chrome/AlertAgentChrome.xml",
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "all_frames": true,
+      "js": [
+        "in_page.js"
+      ]
+    }
+  ],
+  "background": {
+    "scripts": [
+      "main.js"
+    ]
+  },
+  "content_security_policy": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self';",
+  "incognito": "spanning"
+}
